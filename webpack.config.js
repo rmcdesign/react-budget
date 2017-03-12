@@ -3,8 +3,6 @@ var path = require('path');
 
 module.exports = {
   entry: [
-    'script!jquery/dist/jquery.min.js',
-    'script!foundation-sites/dist/foundation.min.js',
     './app/app.jsx'
   ],
   externals: {
@@ -23,6 +21,10 @@ module.exports = {
   resolve: {
     root: __dirname,
     alias: {
+      BudgetApp: 'app/components/BudgetApp.jsx',
+      Nav: 'app/components/Nav.jsx',
+      Summary: 'app/components/Summary.jsx',
+      About: 'app/components/About.jsx',
       applicationStyles: 'app/styles/app.scss'
     },
     extensions: ['', '.js', '.jsx']
@@ -37,11 +39,6 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/
       }
-    ]
-  },
-  sassLoader: {
-    includePaths: [
-      path.resolve(__dirname, './node_modules/foundation-sites/scss')
     ]
   },
   devtool: 'cheap-module-eval-source-map'
