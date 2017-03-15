@@ -77,6 +77,7 @@ body {
   color: #999;
   font-size: 14px;
   background: #fff;
+  position: relative;
 }
 
 .tabs-nav ul {
@@ -99,6 +100,24 @@ body {
   margin-bottom: -1px;
 }
 
-.tabs-nav li:nth-child(2) a {
-  border-bottom: 1px solid #123;
+//.tabs-nav a.active {
+//  border-bottom: 1px solid #123;
+//}
+
+.menu-highlight {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background: #09f;
+  transition: left 0.25s ease-in, right 0.25s ease-out;
+}
+
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 2500ms ease-in;
 }
