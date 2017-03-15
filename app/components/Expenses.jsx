@@ -1,13 +1,13 @@
 var React = require('react');
 
-var About = React.createClass({
+var Expenses = React.createClass({
     render: function () {
         return (
             <div>
-                <h4>About</h4>
+                <h4>Expenses</h4>
             </div>
         )
     }
 });
 
-module.exports = About;
+module.exports = Expenses;

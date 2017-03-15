@@ -5,7 +5,7 @@ var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 // load components
 var BudgetApp = require('BudgetApp');
 var Summary = require('Summary');
-var About = require('About');
+var Expenses = require('Expenses');
 
 // App css
 require('style!css!sass!applicationStyles');
@@ -13,7 +13,7 @@ require('style!css!sass!applicationStyles');
 ReactDOM.render(
   <Router history={hashHistory}>
       <Route path="/" component={BudgetApp}>
-        <Route path="about" component={About}/>
+        <Route path="expenses" component={Expenses}/>
         <IndexRoute component={Summary}></IndexRoute>
       </Route>
   </Router>,
