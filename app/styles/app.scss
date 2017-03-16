@@ -136,7 +136,8 @@ body {
   bottom: 0;
   background: #fff;
   border: 10px solid #f3f3f3;
-  overflow: auto;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .fade-enter {
