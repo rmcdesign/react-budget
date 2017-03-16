@@ -25,6 +25,7 @@ module.exports = {
       Nav: 'app/components/Nav.jsx',
       Summary: 'app/components/Summary.jsx',
       Expenses: 'app/components/Expenses.jsx',
+      Income: 'app/components/Income.jsx',
       applicationStyles: 'app/styles/app.scss'
     },
     extensions: ['', '.js', '.jsx']

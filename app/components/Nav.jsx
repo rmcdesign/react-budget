@@ -57,7 +57,7 @@ var Nav = React.createClass({
 
                 <nav className="tabs-nav">
                     <ul>
-                        <li>Incomes</li>
+                        <li><Link to="/income" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Income</Link></li>
                         <li><IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Summary</IndexLink></li>
                         <li><Link to="/expenses" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Expenses</Link></li>
                         <li>Savings</li>

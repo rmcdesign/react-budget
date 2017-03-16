@@ -12,8 +12,8 @@ var BudgetApp = React.createClass({
 
     const transitionOptions = {
         transitionName: "fade",
-        transitionEnterTimeout: 250,
-        transitionLeaveTimeout: 250
+        transitionEnterTimeout: 350,
+        transitionLeaveTimeout: 350
     };
 
       // {this.props.children}
