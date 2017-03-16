@@ -47,7 +47,7 @@ var Nav = React.createClass({
     render: function () {
 
         return (
-            <div>
+            <div className="app-header">
                 <div className="header">
                     <button className="fa fa-bars"></button>
                     <span className="app-title"><strong>BUDGET</strong>tracker</span>
@@ -57,8 +57,8 @@ var Nav = React.createClass({
 
                 <nav className="tabs-nav">
                     <ul>
-                        <li><Link to="/income" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Income</Link></li>
                         <li><IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Summary</IndexLink></li>
+                        <li><Link to="/income" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Income</Link></li>
                         <li><Link to="/expenses" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Expenses</Link></li>
                         <li>Savings</li>
                     </ul>
