@@ -73,11 +73,12 @@ body {
 .tabs-nav {
   height: 40px;
   line-height: 40px;
-  margin-bottom: 10px;
+  margin-bottom: 1px;
   color: #999;
   font-size: 14px;
   background: #fff;
   position: relative;
+  z-index: 1;
 }
 
 .tabs-nav ul {
@@ -112,12 +113,44 @@ body {
   transition: left 0.25s ease-in, right 0.25s ease-out;
 }
 
-.fade-enter {
-  opacity: 0;
-  z-index: 1;
+.page-container {
+  position: fixed;
+  top: 90px;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 2500ms ease-in;
+.transition-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 10px solid #f3f3f3;
+}
+
+.fade-enter {
+  transform: translateX(100%);
+}
+
+.fade-enter-active {
+  transform: translateX(0%);
+  transition: all 0.25s ease-in-out;
+  z-index: 2;
+}
+
+.fade-leave {
+  transform: translateX(0%);
+}
+
+.fade-leave-active {
+  transform: translateX(-100%) scale(0.5);
+  transition: all 0.25s ease-in-out;
+}
+
+.img {
+  width: 100%;
+  height: auto;
 }

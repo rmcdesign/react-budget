@@ -1,7 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var {Route, Router, IndexRoute, hashHistory} = require('react-router');
-var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 // load components
 var BudgetApp = require('BudgetApp');
