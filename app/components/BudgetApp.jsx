@@ -16,10 +16,6 @@ var BudgetApp = React.createClass({
         transitionLeaveTimeout: 350
     };
 
-      // {this.props.children}
-
-    //console.log(this.props);
-
     return (
       <div>
         <Nav/>

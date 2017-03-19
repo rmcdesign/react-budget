@@ -16,7 +16,7 @@ var Nav = React.createClass({
         var l = offset.left;
         var r = w - offset.right;
 
-        console.log(w,l, r);
+        //console.log(w,l, r);
 
         menuHighlight.css({
             'left': l,
@@ -34,7 +34,7 @@ var Nav = React.createClass({
         var l = offset.left;
         var r = w - offset.right;
 
-        console.log(w,l, r);
+        //console.log(w,l, r);
 
         menuHighlight.css({
             'left': l,
