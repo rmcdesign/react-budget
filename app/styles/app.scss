@@ -36,7 +36,7 @@ body {
 }
 
 .header {
-  background: #123;
+  background: $primary;
   height: 50px;
   position: relative;
   color: #fff;
@@ -76,6 +76,45 @@ body {
   margin-right: 1px;
 }
 
+.buttons-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.buttons {
+  padding: 10px 5px;
+  display: flex;
+  button {
+    flex: 1 1 100%;
+    text-align: center;
+    margin: 0 5px;
+    background: red;
+    color: #fff;
+    line-height: 44px;
+    border: 0;
+    &:first-child {
+      background: green;
+    }
+  }
+}
+
+.tracker-input-container {
+  padding: 10px 10px 0;
+}
+
+.tracker-input {
+  display: block;
+  width: 100%;
+  height: 44px;
+  line-height: 44px;
+  padding: 0 10px;
+  border-radius: 5px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+}
+
 .tabs-nav {
   height: 40px;
   line-height: 40px;
@@ -102,7 +141,7 @@ body {
 
 .tabs-nav a {
   text-decoration: none;
-  color: #123;
+  color: $primary;
   display: inline-block;
 }
 
@@ -122,7 +161,7 @@ body {
   z-index: 0;
   left: 0;
   right: 0;
-  bottom: 60px;
+  bottom: 114px;
 }
 
 .transition-item {
