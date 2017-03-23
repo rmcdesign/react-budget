@@ -11,11 +11,12 @@ var Income = require('Income');
 // App css
 require('style!css!sass!applicationStyles');
 
+
 ReactDOM.render(
   <Router history={hashHistory}>
       <Route path="/" component={BudgetApp}>
           <IndexRoute component={Summary}></IndexRoute>
-          <Route path="expenses" component={Expenses}/>
+          <Route path="expense" component={Expenses}/>
           <Route path="income" component={Income}/>
       </Route>
   </Router>,

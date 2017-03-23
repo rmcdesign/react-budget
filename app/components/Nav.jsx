@@ -59,7 +59,7 @@ var Nav = React.createClass({
                     <ul>
                         <li><IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Summary</IndexLink></li>
                         <li><Link to="/income" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Income</Link></li>
-                        <li><Link to="/expenses" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Expenses</Link></li>
+                        <li><Link to="/expense" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Expenses</Link></li>
                         <li>Savings</li>
                     </ul>
                     <span className="menu-highlight"></span>

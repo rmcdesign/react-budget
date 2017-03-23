@@ -22,10 +22,13 @@ module.exports = {
     root: __dirname,
     alias: {
       BudgetApp: 'app/components/BudgetApp.jsx',
+      API: 'app/api/budgetTrackerAPI.jsx',
       Nav: 'app/components/Nav.jsx',
       Summary: 'app/components/Summary.jsx',
       Expenses: 'app/components/Expenses.jsx',
       Income: 'app/components/Income.jsx',
+      ListItem: 'app/components/ListItem.jsx',
+      AddItem: 'app/components/AddItem.jsx',
       applicationStyles: 'app/styles/app.scss'
     },
     extensions: ['', '.js', '.jsx']

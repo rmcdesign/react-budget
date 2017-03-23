@@ -1,15 +1,30 @@
 var React = require('react');
+var ListItem = require('ListItem');
 
 var Income = React.createClass({
+
     render: function () {
+
+        var {items} = this.props;
+
+        var renderIncomes = () => {
+            return items.map((item) => {
+                if(item.type === 'income') {
+                    return (
+                        <ListItem key={item.id} {...item}/>
+                    );
+                }
+
+            });
+        };
+
         return (
             <div className="transition-item">
                 <div className="recent-activity">
                     <h4>Income</h4>
 
                     <ul>
-                        <li><span className="item-icon fa fa-bank"></span> <span className="item-label">Wages</span> <span className="item-value item__inc">£4000.00</span></li>
-                        <li><span className="item-icon fa fa-bank"></span> <span className="item-label">Freelance work</span> <span className="item-value item__inc">£550.00</span></li>
+                        {renderIncomes()}
                     </ul>
                 </div>
             </div>
