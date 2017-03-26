@@ -1,4 +1,5 @@
 var React = require('react');
+var dateFormat = require('dateformat');
 
 var AddItem = React.createClass({
 
@@ -8,10 +9,15 @@ var AddItem = React.createClass({
         var itemDescription = this.refs.itemDescription.value;
         var type = this.refs.type.value;
 
+
         if(itemValue.length > 0 && itemDescription.length > 0) {
             this.refs.itemValue.value = '';
             this.refs.itemDescription.value = '';
-            this.props.onAddItem(itemValue, itemDescription, type);
+
+            var now = new Date();
+            var timeDate = dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT");
+
+            this.props.onAddItem(itemValue, itemDescription, type, timeDate);
         } else {
             if(itemDescription.length === 0) {
                 this.refs.itemDescription.focus();

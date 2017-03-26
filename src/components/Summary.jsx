@@ -1,19 +1,18 @@
 var React = require('react');
-var ListItem = require('ListItem');
+
+import ListItem from './ListItem';
 
 var Summary = React.createClass({
     render: function () {
 
-        console.log(this.props);
-
         var {items} = this.props;
 
         var renderSummary = () => {
-            return items.map((item) => {
-                return (
-                    <ListItem key={item.id} {...item}/>
-                );
-            });
+            // return items.map((item) => {
+            //     return (
+            //         <ListItem key={item.id} {...item}/>
+            //     );
+            // });
         };
 
         return (

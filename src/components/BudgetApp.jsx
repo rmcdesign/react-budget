@@ -1,12 +1,14 @@
+import React, { Component } from 'react';
+
 var React = require('react');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 var uuid = require('node-uuid');
 
 //var {BrowserRouter as Router, Route, Link} = require('react-router-dom');
 
-var Summary = require('Summary');
-var Expenses = require('Expenses');
-var Income = require('Income');
+// var Summary = require('Summary');
+// var Expenses = require('Expenses');
+// var Income = require('Income');
 
 import {
     BrowserRouter as Router,
@@ -14,12 +16,22 @@ import {
     NavLink
 } from 'react-router-dom'
 
-var API = require('API');
-var Nav = require('Nav');
-var AddItem = require('AddItem');
+import API from '../api/api';
+//import Nav from './Nav';
+import Income from './Income';
+import Expenses from './Expenses';
+import Summary from './Summary';
+
+//var API = require('API');
+// var Nav = require('Nav');
+// var AddItem = require('AddItem');
 
 
 var BudgetApp = React.createClass({
+
+    componentDidUpdate() {
+        console.log('updated');
+    },
 
     getInitialState: function() {
         return {
@@ -60,17 +72,17 @@ var BudgetApp = React.createClass({
 
     <Router>
         <div>
-            {/*<Nav/>*/}
-            <nav className="tabs-nav">
-                <ul>
-                    {/*<li><IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Summary</IndexLink></li>*/}
-                    <li><NavLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Summary</NavLink></li>
-                    <li><NavLink to="/income" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Income</NavLink></li>
-                    <li><NavLink to="/expense" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Expenses</NavLink></li>
-                    <li>Savings</li>
-                </ul>
-                <span className="menu-highlight"></span>
-            </nav>
+            <Nav/>
+            {/*<nav className="tabs-nav">*/}
+                {/*<ul>*/}
+                    {/*/!*<li><IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Summary</IndexLink></li>*!/*/}
+                    {/*<li><NavLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Summary</NavLink></li>*/}
+                    {/*<li><NavLink to="/income" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Income</NavLink></li>*/}
+                    {/*<li><NavLink to="/expense" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Expenses</NavLink></li>*/}
+                    {/*<li>Savings</li>*/}
+                {/*</ul>*/}
+                {/*<span className="menu-highlight"></span>*/}
+            {/*</nav>*/}
             {/*<div className={ 'page-container ' + this.props.routes[1].path}>*/}
             <div className="page-container">
                 <ReactCSSTransitionGroup {...transitionOptions} >

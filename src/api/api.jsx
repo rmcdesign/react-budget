@@ -1,9 +1,8 @@
 var uuid = require('node-uuid');
-var $ = require('jQuery');
 
 module.exports = {
     setItems: function(items) {
-        if($.isArray(items)) {
+        if(Array.isArray(items)) {
             localStorage.setItem('items', JSON.stringify(items));
             return items;
         }
@@ -19,7 +18,7 @@ module.exports = {
 
         }
 
-        if($.isArray(items)) {
+        if(Array.isArray(items)) {
             return items;
         } else {
             return [];

@@ -1,7 +1,9 @@
 var React = require('react');
-var ListItem = require('ListItem');
+
+import ListItem from './ListItem';
 
 var Expenses = React.createClass({
+
     render: function () {
 
         var {items} = this.props;
@@ -12,6 +14,8 @@ var Expenses = React.createClass({
                     return (
                         <ListItem key={item.id} {...item}/>
                     );
+                } else {
+                    return false;
                 }
 
             });

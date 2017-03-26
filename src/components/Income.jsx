@@ -1,5 +1,6 @@
 var React = require('react');
-var ListItem = require('ListItem');
+
+import ListItem from './ListItem';
 
 var Income = React.createClass({
 
@@ -8,14 +9,14 @@ var Income = React.createClass({
         var {items} = this.props;
 
         var renderIncomes = () => {
-            // return items.map((item) => {
-            //     if(item.type === 'income') {
-            //         return (
-            //             <ListItem key={item.id} {...item}/>
-            //         );
-            //     }
-            //
-            // });
+            return items.map((item) => {
+                if(item.type === 'income') {
+                    return (
+                        <ListItem key={item.id} {...item}/>
+                    );
+                }
+
+            });
         };
 
         return (

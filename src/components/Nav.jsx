@@ -2,7 +2,8 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 //var {Link, IndexLink} = require('react-router');
 import { NavLink } from 'react-router-dom';
-var $ = require('jQuery');
+var $ = require('jquery');
+
 
 var Nav = React.createClass({
 
@@ -44,6 +45,10 @@ var Nav = React.createClass({
         // set el height and width etc.
     },
 
+    handleClick: function(e) {
+        this.props.onNavClick(e.target.href);
+    },
+
 
     render: function () {
 
@@ -57,11 +62,11 @@ var Nav = React.createClass({
 
 
                 <nav className="tabs-nav">
-                    <ul>
+                    <ul onClick={this.handleClick}>
                         {/*<li><IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Summary</IndexLink></li>*/}
-                        <li><NavLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Summary</NavLink></li>
-                        <li><NavLink to="/income" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Income</NavLink></li>
-                        <li><NavLink to="/expense" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Expenses</NavLink></li>
+                        <li><NavLink id="summary" to="/" activeClassName="active" exact={true} activeStyle={{fontWeight: 'bold'}}>Summary</NavLink></li>
+                        <li><NavLink id="income" to="/income" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Income</NavLink></li>
+                        <li><NavLink id="expense" to="/expense" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Expenses</NavLink></li>
                         <li>Savings</li>
                     </ul>
                     <span className="menu-highlight"></span>

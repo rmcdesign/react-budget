@@ -1,13 +1,8 @@
-@import "base/variables";
-
-// Components
-
 html {
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
+
 *, *:before, *:after {
-  box-sizing: inherit;
-}
+  box-sizing: inherit; }
 
 .clearfix:after {
   visibility: hidden;
@@ -15,32 +10,34 @@ html {
   font-size: 0;
   content: " ";
   clear: both;
-  height: 0;
-}
-.clearfix { display: inline-block; }
+  height: 0; }
+
+.clearfix {
+  display: inline-block; }
+
 /* start commented backslash hack \*/
-* html .clearfix { height: 1%; }
-.clearfix { display: block; }
+* html .clearfix {
+  height: 1%; }
+
+.clearfix {
+  display: block; }
 
 body {
   font-family: 'Roboto Slab', serif;
   font-weight: 300;
-  background: #f3f3f3;
-}
+  background: #f3f3f3; }
 
 .app-header {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-}
+  right: 0; }
 
 .header {
-  background: $primary;
+  background: #123;
   height: 50px;
   position: relative;
-  color: #fff;
-}
+  color: #fff; }
 
 .header button {
   background: transparent;
@@ -53,12 +50,10 @@ body {
   display: block;
   margin: 0;
   padding: 0;
-  float: left;
-}
+  float: left; }
 
 .header .settings-btn {
-  float: right;
-}
+  float: right; }
 
 .app-title {
   position: absolute;
@@ -68,53 +63,43 @@ body {
   height: 50px;
   line-height: 50px;
   text-align: center;
-  font-weight: 300;
-}
+  font-weight: 300; }
 
 .app-title strong {
   font-weight: 700;
-  margin-right: 1px;
-}
+  margin-right: 1px; }
 
 .buttons-container {
   position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
-}
+  right: 0; }
 
 .buttons {
   padding: 10px 5px;
-  display: flex;
-  button {
+  display: flex; }
+  .buttons button {
     flex: 1 1 100%;
     text-align: center;
     margin: 0 5px;
     color: #fff;
     line-height: 44px;
     border: 0;
-    transition: all .3s ease;
-  }
-}
+    transition: all .3s ease; }
 
 button.income {
-  background: green;
-}
+  background: green; }
 
 button.expense {
-  background: red;
-}
+  background: red; }
 
 .tracker-input-container {
   padding: 10px 5px 0;
-  display: flex;
-  > div {
-    &:first-child {
-      width: 100%;
-    }
-    margin: 0 5px;
-  }
-}
+  display: flex; }
+  .tracker-input-container > div {
+    margin: 0 5px; }
+    .tracker-input-container > div:first-child {
+      width: 100%; }
 
 .tracker-input {
   display: block;
@@ -124,8 +109,7 @@ button.expense {
   padding: 0 10px;
   border-radius: 5px;
   font-size: 16px;
-  border: 1px solid #ccc;
-}
+  border: 1px solid #ccc; }
 
 .tabs-nav {
   height: 40px;
@@ -135,28 +119,23 @@ button.expense {
   font-size: 14px;
   background: #fff;
   position: relative;
-  z-index: 1;
-}
+  z-index: 1; }
 
 .tabs-nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  border-bottom: 1px solid #ddd;
-}
+  border-bottom: 1px solid #ddd; }
 
 .tabs-nav li {
   flex: 1 1 100%;
-  text-align: center;
-}
+  text-align: center; }
 
 .tabs-nav a {
   text-decoration: none;
-  color: $primary;
-  display: inline-block;
-}
-
+  color: #123;
+  display: inline-block; }
 
 .menu-highlight {
   position: absolute;
@@ -164,8 +143,7 @@ button.expense {
   z-index: 3;
   height: 2px;
   background: #09f;
-  transition: left 0.25s ease-in-out, right 0.25s ease-in-out;
-}
+  transition: left 0.25s ease-in-out, right 0.25s ease-in-out; }
 
 .page-container {
   position: fixed;
@@ -173,14 +151,11 @@ button.expense {
   z-index: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-
-}
+  bottom: 0; }
 
 .page-container.income,
 .page-container.expense {
-  bottom: 114px;
-}
+  bottom: 114px; }
 
 .transition-item {
   position: absolute;
@@ -191,98 +166,75 @@ button.expense {
   background: #fff;
   border: 10px solid #f3f3f3;
   overflow: scroll;
-  -webkit-overflow-scrolling: touch;
-}
+  -webkit-overflow-scrolling: touch; }
 
 .fade-enter {
-  transform: translateX(100%);
-}
+  transform: translateX(100%); }
 
 .fade-enter-active {
   transform: translateX(0%);
   transition: all 0.35s ease;
-  z-index: 2;
-}
+  z-index: 2; }
 
 .fade-leave {
-  transform: translateX(0%);
-}
+  transform: translateX(0%); }
 
 .fade-leave-active {
   transform: translateX(-100%) scale(0.8);
   opacity: 0;
-  transition: all 0.35s ease;
-}
+  transition: all 0.35s ease; }
 
 .img {
   width: 100%;
-  height: auto;
-}
+  height: auto; }
 
 h4 {
   margin: 20px 0 10px;
-  font-weight: bold;
-}
+  font-weight: bold; }
 
 .recent-activity {
   margin-bottom: 10px;
-  padding: 0 20px;
-}
+  padding: 0 20px; }
 
 .recent-activity ul {
   list-style: none;
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 .recent-activity li {
-  padding: 10px 0;
-}
+  padding: 10px 0; }
 
 .item-icon {
   width: 30px;
-  text-align: left;
-}
+  text-align: left; }
 
 .item-value {
-  float: right;
-}
+  float: right; }
 
 .item__inc,
 .total-item__inc {
-  color: green;
-}
+  color: green; }
 
 .item__exp,
 .total-item__exp {
-  color: red;
-}
-
-
+  color: red; }
 
 .time-date {
   font-size: 10px;
-  padding: 10px 10px 10px 30px;
-}
-
+  padding: 10px 10px 10px 30px; }
 
 @media (min-width: 1100px) {
   body {
-    background: url('../img/iphone.jpg') top center no-repeat;;
-    background-size: 722px;
-  }
+    background: url("../img/iphone.jpg") top center no-repeat;
+    background-size: 722px; }
   #app {
     background: #f3f3f3;
     width: 375px;
     height: 667px;
     margin: 200px auto 50px auto;
     position: relative;
-    overflow: hidden;
-  }
+    overflow: hidden; }
   .buttons-container,
   .app-header,
   .page-container {
-    position: absolute;
-  }
-}
-
+    position: absolute; } }

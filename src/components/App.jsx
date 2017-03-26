@@ -1,12 +1,13 @@
+//import React, { Component } from 'react';
+
 var React = require('react');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
-var uuid = require('node-uuid');
 
 //var {BrowserRouter as Router, Route, Link} = require('react-router-dom');
 
-var Summary = require('Summary');
-var Expenses = require('Expenses');
-var Income = require('Income');
+// var Summary = require('Summary');
+// var Expenses = require('Expenses');
+// var Income = require('Income');
 
 import {
     BrowserRouter as Router,
@@ -14,116 +15,116 @@ import {
     NavLink
 } from 'react-router-dom'
 
-var API = require('API');
-var Nav = require('Nav');
-var AddItem = require('AddItem');
+var uuid = require('node-uuid');
+
+import API from '../api/api';
+import Nav from './Nav';
+import Income from './Income';
+import Expenses from './Expenses';
+import Summary from './Summary';
+
+import '../css/app.css';
+
+//var API = require('API');
+// var Nav = require('Nav');
+var AddItem = require('./AddItem');
 
 
 var BudgetApp = React.createClass({
 
     getInitialState: function() {
         return {
-          items: API.getItems()
+            items: API.getItems(),
+            enablePageTransitions: true
         };
     },
 
     componentDidUpdate: function() {
-        API.setItems(this.state.items)
+        API.setItems(this.state.items);
     },
 
-    handleAddItem: function(itemValue, itemDescription, type) {
+    handleAddItem: function(itemValue, itemDescription, type, timeDate) {
         this.setState({
+            enablePageTransitions: false,
             items: [
                 ...this.state.items,
                 {
                     id: uuid(),
                     amount: itemValue,
                     description: itemDescription,
-                    type: type
+                    type: type,
+                    timeDate: timeDate
                 }
             ]
-        })
+        });
     },
 
-  render: function () {
+    navClicked: function(href) {
+        this.setState({
+            enablePageTransitions: true
+        });
+    },
 
-      var {items} = this.state;
+    render: function () {
 
-    const transitionOptions = {
-        transitionName: "fade",
-        transitionEnterTimeout: 350,
-        transitionLeaveTimeout: 350
-    };
+        var {items, enablePageTransitions} = this.state;
 
-    return (
+        const transitionOptions = {
+            transitionName: "fade",
+            transitionEnterTimeout: 350,
+            transitionLeaveTimeout: 350,
+            transitionEnter:enablePageTransitions,
+            transitionLeave:enablePageTransitions
+        };
 
-
-    <Router>
-        <div>
-            {/*<Nav/>*/}
-            <nav className="tabs-nav">
-                <ul>
-                    {/*<li><IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Summary</IndexLink></li>*/}
-                    <li><NavLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Summary</NavLink></li>
-                    <li><NavLink to="/income" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Income</NavLink></li>
-                    <li><NavLink to="/expense" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Expenses</NavLink></li>
-                    <li>Savings</li>
-                </ul>
-                <span className="menu-highlight"></span>
-            </nav>
-            {/*<div className={ 'page-container ' + this.props.routes[1].path}>*/}
-            <div className="page-container">
-                <ReactCSSTransitionGroup {...transitionOptions} >
-                    <Route exact path="/"
-                           location={location}
-                           key={location.key}
-                           render={
-                               (defaultProps) => <Summary items={items} {...defaultProps} />
-                           }
-                    />
-                    {/*<IndexRoute component={Summary}></IndexRoute>*/}
-
-                    <Route path="expense"
-                           location={location}
-                           key={location.key}
-                           render={
-                               (defaultProps) => <Expenses items={items} {...defaultProps} />
-                           }
-                           //component={Expenses}
-                    />
-                    <Route path="income"
-                           location={location}
-                           key={location.key}
-                           render={
-                               (defaultProps) => <Income items={items} {...defaultProps} />
-                           }
-                           //component={Income}
-                    />
-
-                </ReactCSSTransitionGroup>
-
-            </div>
-        </div>
-    </Router>
+        return (
 
 
+            <Router>
+                <Route render={({ location, context }) => (
 
-      // <div>
-      //   <Nav/>
-      //   <div className={ 'page-container ' + this.props.routes[1].path}>
-      //       <ReactCSSTransitionGroup {...transitionOptions} >
-      //       {
-      //         React.cloneElement(this.props.children, {
-      //             key: this.props.location.key,
-      //             items: items
-      //         })
-      //       }
-      //       </ReactCSSTransitionGroup>
-      //   </div>
-      //   <AddItem onAddItem={this.handleAddItem} type={this.props.routes[1].path}/>
-      // </div>
-    )
-  }
+                <div id="app">
+                    <Nav onNavClick={this.navClicked}/>
+                    <div className={ 'page-container ' + location.pathname.substr(1)}>
+
+                            <ReactCSSTransitionGroup {...transitionOptions}>
+                                <Route
+                                    key={uuid()}
+                                   location={location}
+                                   exact path="/"
+                                    render={
+                                        (defaultProps) => <Summary items={items} {...defaultProps} />
+                                    }
+                                />
+                                <Route
+                                       location={location}
+                                       key={uuid()}
+                                       path="/expense"
+                                       render={
+                                           (defaultProps) => <Expenses items={items} {...defaultProps} />
+                                       }
+                                />
+                                <Route path="/income"
+                                       location={location}
+                                       key={uuid()}
+                                       render={
+                                           (defaultProps) => <Income items={items} {...defaultProps} />
+                                       }
+                                />
+                            </ReactCSSTransitionGroup>
+
+                    </div>
+
+                    <AddItem onAddItem={this.handleAddItem} type={location.pathname.substr(1)}/>
+
+                </div>
+                )}/>
+            </Router>
+
+
+
+        )
+    }
 });
 
 module.exports = BudgetApp;
