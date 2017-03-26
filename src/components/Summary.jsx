@@ -4,6 +4,8 @@ var ListItem = require('ListItem');
 var Summary = React.createClass({
     render: function () {
 
+        console.log(this.props);
+
         var {items} = this.props;
 
         var renderSummary = () => {

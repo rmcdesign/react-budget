@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var {Link, IndexLink} = require('react-router');
+//var {Link, IndexLink} = require('react-router');
+import { NavLink } from 'react-router-dom';
 var $ = require('jQuery');
 
 var Nav = React.createClass({
@@ -57,9 +58,10 @@ var Nav = React.createClass({
 
                 <nav className="tabs-nav">
                     <ul>
-                        <li><IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Summary</IndexLink></li>
-                        <li><Link to="/income" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Income</Link></li>
-                        <li><Link to="/expense" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Expenses</Link></li>
+                        {/*<li><IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Summary</IndexLink></li>*/}
+                        <li><NavLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Summary</NavLink></li>
+                        <li><NavLink to="/income" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Income</NavLink></li>
+                        <li><NavLink to="/expense" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Expenses</NavLink></li>
                         <li>Savings</li>
                     </ul>
                     <span className="menu-highlight"></span>

@@ -8,14 +8,14 @@ var Income = React.createClass({
         var {items} = this.props;
 
         var renderIncomes = () => {
-            return items.map((item) => {
-                if(item.type === 'income') {
-                    return (
-                        <ListItem key={item.id} {...item}/>
-                    );
-                }
-
-            });
+            // return items.map((item) => {
+            //     if(item.type === 'income') {
+            //         return (
+            //             <ListItem key={item.id} {...item}/>
+            //         );
+            //     }
+            //
+            // });
         };
 
         return (
