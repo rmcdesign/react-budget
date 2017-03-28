@@ -8,11 +8,11 @@ var Summary = React.createClass({
         var {items} = this.props;
 
         var renderSummary = () => {
-            // return items.map((item) => {
-            //     return (
-            //         <ListItem key={item.id} {...item}/>
-            //     );
-            // });
+            return items.map((item) => {
+                return (
+                    <ListItem key={item.id} {...item}/>
+                );
+            });
         };
 
         return (

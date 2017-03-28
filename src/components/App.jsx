@@ -22,6 +22,7 @@ import Nav from './Nav';
 import Income from './Income';
 import Expenses from './Expenses';
 import Summary from './Summary';
+import EnterDetails from './EnterDetails';
 
 import '../css/app.css';
 
@@ -35,7 +36,8 @@ var BudgetApp = React.createClass({
     getInitialState: function() {
         return {
             items: API.getItems(),
-            enablePageTransitions: true
+            enablePageTransitions: false,
+            showEnterDetails: false
         };
     },
 
@@ -60,9 +62,19 @@ var BudgetApp = React.createClass({
     },
 
     navClicked: function(href) {
-        this.setState({
+        var self = this;
+        self.setState({
             enablePageTransitions: true
         });
+        setTimeout(function() {
+            self.setState({
+                enablePageTransitions: false
+            });
+        }, 300);
+    },
+
+    toggleEnterDetails: function() {
+        this.setState({showEnterDetails: !this.state.showEnterDetails});
     },
 
     render: function () {
@@ -115,7 +127,10 @@ var BudgetApp = React.createClass({
 
                     </div>
 
-                    <AddItem onAddItem={this.handleAddItem} type={location.pathname.substr(1)}/>
+
+                    { this.state.showEnterDetails ? <EnterDetails/> : null }
+
+                    <AddItem onAddItem={this.handleAddItem} toggleEnterDetails={this.toggleEnterDetails} type={location.pathname.substr(1)}/>
 
                 </div>
                 )}/>
