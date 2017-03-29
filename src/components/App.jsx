@@ -123,14 +123,31 @@ var BudgetApp = React.createClass({
                                            (defaultProps) => <Income items={items} {...defaultProps} />
                                        }
                                 />
+
+                                <Route path="/add"
+                                       location={location}
+                                       key={uuid()}
+                                       render={
+                                           (defaultProps) => <EnterDetails {...defaultProps} />
+                                       }
+                                />
+
+
+
                             </ReactCSSTransitionGroup>
 
                     </div>
 
+                    {/*{ this.state.showEnterDetails ? <EnterDetails/> : null }*/}
 
-                    { this.state.showEnterDetails ? <EnterDetails/> : null }
+                    <div className="buttons-container">
+                        <div className="buttons">
+                            <NavLink onClick={this.navClicked} className="add-btn" id="add" to="/add" exact={true}>Add expense</NavLink>
+                        </div>
+                    </div>
 
-                    <AddItem onAddItem={this.handleAddItem} toggleEnterDetails={this.toggleEnterDetails} type={location.pathname.substr(1)}/>
+
+                    {/*<AddItem onAddItem={this.handleAddItem} toggleEnterDetails={this.toggleEnterDetails} type={location.pathname.substr(1)}/>*/}
 
                 </div>
                 )}/>

@@ -87,6 +87,19 @@ body {
     border: 0;
     transition: all .3s ease; }
 
+.add-btn {
+  flex: 1 1 100%;
+  text-align: center;
+  margin: 0 5px;
+  color: #fff;
+  line-height: 44px;
+  border: 0;
+  transition: all .3s ease;
+  background: red;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold; }
+
 button.income {
   background: green; }
 
@@ -153,9 +166,10 @@ button.expense {
   right: 0;
   bottom: 0; }
 
+.page-container.add,
 .page-container.income,
 .page-container.expense {
-  bottom: 114px; }
+  bottom: 56px; }
 
 .transition-item {
   position: absolute;
@@ -226,8 +240,8 @@ h4 {
 .enter-details {
   position: absolute;
   background: #fff;
-  top: 50px;
-  bottom: 69px;
+  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
   z-index: 2;
@@ -239,7 +253,7 @@ h4 {
     opacity: 0; }
 
 .form-input {
-  padding: 20px; }
+  padding: 15px; }
   .form-input label {
     display: block;
     margin-bottom: 10px;
@@ -254,12 +268,12 @@ h4 {
     border-radius: 0; }
 
 .category-label {
-  padding: 20px;
+  padding: 15px;
   display: block; }
 
 .radio-inputs {
   overflow: hidden;
-  padding: 0 20px 20px; }
+  padding: 0 15px 15px; }
 
 .radio input {
   height: 0;
@@ -271,7 +285,7 @@ h4 {
   float: left;
   width: 33.33333%;
   height: 0;
-  padding-bottom: 33.33333%;
+  padding-bottom: 32.33333%;
   border: 1px solid #ddd;
   position: relative; }
 

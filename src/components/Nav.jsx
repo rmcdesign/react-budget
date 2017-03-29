@@ -10,38 +10,38 @@ var Nav = React.createClass({
     //test: this.summaryLink.getBoundingClientRect(),
 
     componentDidMount: function() {
-        var $this = $(ReactDOM.findDOMNode(this));
-        var activeLink = $this.find('.active');
-        var offset = activeLink[0].getBoundingClientRect();
-        var menuHighlight = $this.find('.menu-highlight');
-        var w = window.innerWidth;
-        var l = offset.left;
-        var r = w - offset.right;
-
-        //console.log(w,l, r);
-
-        menuHighlight.css({
-            'left': l,
-            'right': r
-        });
+        // var $this = $(ReactDOM.findDOMNode(this));
+        // var activeLink = $this.find('.active');
+        // var offset = activeLink[0].getBoundingClientRect();
+        // var menuHighlight = $this.find('.menu-highlight');
+        // var w = window.innerWidth;
+        // var l = offset.left;
+        // var r = w - offset.right;
+        //
+        // //console.log(w,l, r);
+        //
+        // menuHighlight.css({
+        //     'left': l,
+        //     'right': r
+        // });
         // set el height and width etc.
     },
 
     componentDidUpdate: function() {
-        var $this = $(ReactDOM.findDOMNode(this));
-        var activeLink = $this.find('.active');
-        var offset = activeLink[0].getBoundingClientRect();
-        var menuHighlight = $this.find('.menu-highlight');
-        var w = window.innerWidth;
-        var l = offset.left;
-        var r = w - offset.right;
-
-        //console.log(w,l, r);
-
-        menuHighlight.css({
-            'left': l,
-            'right': r
-        });
+        // var $this = $(ReactDOM.findDOMNode(this));
+        // var activeLink = $this.find('.active');
+        // var offset = activeLink[0].getBoundingClientRect();
+        // var menuHighlight = $this.find('.menu-highlight');
+        // var w = window.innerWidth;
+        // var l = offset.left;
+        // var r = w - offset.right;
+        //
+        // //console.log(w,l, r);
+        //
+        // menuHighlight.css({
+        //     'left': l,
+        //     'right': r
+        // });
         // set el height and width etc.
     },
 
