@@ -12,7 +12,7 @@ var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 import {
     BrowserRouter as Router,
     Route,
-    NavLink
+    //NavLink
 } from 'react-router-dom'
 
 var uuid = require('node-uuid');
@@ -28,7 +28,9 @@ import '../css/app.css';
 
 //var API = require('API');
 // var Nav = require('Nav');
-var AddItem = require('./AddItem');
+//var AddItem = require('./AddItem');
+
+var speed = 400;
 
 
 var BudgetApp = React.createClass({
@@ -61,16 +63,18 @@ var BudgetApp = React.createClass({
         });
     },
 
-    navClicked: function(href) {
+    navClicked: function(path, current) {
         var self = this;
-        self.setState({
-            enablePageTransitions: true
-        });
+        if (path != current) {
+            self.setState({
+                enablePageTransitions: true
+            });
+        }
         setTimeout(function() {
             self.setState({
                 enablePageTransitions: false
             });
-        }, 300);
+        }, speed);
     },
 
     toggleEnterDetails: function() {
@@ -83,8 +87,8 @@ var BudgetApp = React.createClass({
 
         const transitionOptions = {
             transitionName: "fade",
-            transitionEnterTimeout: 350,
-            transitionLeaveTimeout: 350,
+            transitionEnterTimeout: speed,
+            transitionLeaveTimeout: speed,
             transitionEnter:enablePageTransitions,
             transitionLeave:enablePageTransitions
         };
@@ -95,8 +99,8 @@ var BudgetApp = React.createClass({
             <Router>
                 <Route render={({ location, context }) => (
 
-                <div id="app">
-                    <Nav onNavClick={this.navClicked}/>
+                <div id="router-root">
+                    <Nav onNavClick={this.navClicked} location={location}/>
                     <div className={ 'page-container ' + location.pathname.substr(1)}>
 
                             <ReactCSSTransitionGroup {...transitionOptions}>
@@ -105,7 +109,7 @@ var BudgetApp = React.createClass({
                                    location={location}
                                    exact path="/"
                                     render={
-                                        (defaultProps) => <Summary items={items} {...defaultProps} />
+                                        (defaultProps) => <Summary onButtonClick={this.navClicked} items={items} {...defaultProps} />
                                     }
                                 />
                                 <Route
@@ -113,22 +117,30 @@ var BudgetApp = React.createClass({
                                        key={uuid()}
                                        path="/expense"
                                        render={
-                                           (defaultProps) => <Expenses items={items} {...defaultProps} />
+                                           (defaultProps) => <Expenses onButtonClick={this.navClicked} items={items} {...defaultProps} />
                                        }
                                 />
                                 <Route path="/income"
                                        location={location}
                                        key={uuid()}
                                        render={
-                                           (defaultProps) => <Income items={items} {...defaultProps} />
+                                           (defaultProps) => <Income onButtonClick={this.navClicked} items={items} {...defaultProps} />
                                        }
                                 />
 
-                                <Route path="/add"
+                                <Route path="/add-expense"
                                        location={location}
                                        key={uuid()}
                                        render={
-                                           (defaultProps) => <EnterDetails {...defaultProps} />
+                                           (defaultProps) => <EnterDetails onAddItem={this.handleAddItem} type="expense" {...defaultProps} />
+                                       }
+                                />
+
+                                <Route path="/add-income"
+                                       location={location}
+                                       key={uuid()}
+                                       render={
+                                           (defaultProps) => <EnterDetails onAddItem={this.handleAddItem} type="income" {...defaultProps} />
                                        }
                                 />
 
@@ -138,13 +150,44 @@ var BudgetApp = React.createClass({
 
                     </div>
 
-                    {/*{ this.state.showEnterDetails ? <EnterDetails/> : null }*/}
+                    {/*<div className="buttons-container">*/}
+                        {/*<div className="buttons">*/}
+                            {/*<ReactCSSTransitionGroup {...transitionOptions}>*/}
+                                {/*<Route path="/add-income"*/}
+                                       {/*location={location}*/}
+                                       {/*key={uuid()}*/}
+                                       {/*render={*/}
+                                           {/*(defaultProps) => <AddItem type="income" />*/}
+                                       {/*}*/}
+                                {/*/>*/}
+                                {/*<Route path="/add-expense"*/}
+                                       {/*location={location}*/}
+                                       {/*key={uuid()}*/}
+                                       {/*render={*/}
+                                           {/*(defaultProps) => <AddItem type="expense" />*/}
+                                       {/*}*/}
+                                {/*/>*/}
+                                {/*<Route path="/income"*/}
+                                       {/*location={location}*/}
+                                       {/*key={uuid()}*/}
+                                       {/*render={*/}
+                                           {/*(defaultProps) => <NavLink onClick={this.navClicked} className="btn income" to="/add-income" exact={true}>Add income</NavLink>*/}
+                                       {/*}*/}
+                                {/*/>*/}
+                                {/*<Route path="/expense"*/}
+                                       {/*location={location}*/}
+                                       {/*key={uuid()}*/}
+                                       {/*render={*/}
+                                           {/*(defaultProps) => <NavLink onClick={this.navClicked} className="btn expense" to="/add-expense" exact={true}>Add expense</NavLink>*/}
+                                       {/*}*/}
+                                {/*/>*/}
+                            {/*</ReactCSSTransitionGroup>*/}
 
-                    <div className="buttons-container">
-                        <div className="buttons">
-                            <NavLink onClick={this.navClicked} className="add-btn" id="add" to="/add" exact={true}>Add expense</NavLink>
-                        </div>
-                    </div>
+                            {/*/!*{location.pathname.substr(1) === 'add-expense' || location.pathname.substr(1) === 'add-income' ? <NavLink onClick={this.navClicked} className="btn" to="/" exact={true}>Cancel</NavLink> : null}*!/*/}
+                            {/*/!*{location.pathname.substr(1) != 'add-expense' ? <NavLink onClick={this.navClicked} className="btn income" to="/add-income" exact={true}>Add income</NavLink> : null}*!/*/}
+                            {/*/!*{location.pathname.substr(1) != 'add-income' ? <NavLink onClick={this.navClicked} className="btn expense" to="/add-expense" exact={true}>Add expense</NavLink> : null}*!/*/}
+                        {/*</div>*/}
+                    {/*</div>*/}
 
 
                     {/*<AddItem onAddItem={this.handleAddItem} toggleEnterDetails={this.toggleEnterDetails} type={location.pathname.substr(1)}/>*/}

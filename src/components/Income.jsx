@@ -1,8 +1,28 @@
 var React = require('react');
+import {
+    NavLink
+} from 'react-router-dom';
 
 import ListItem from './ListItem';
 
 var Income = React.createClass({
+
+    // getInitialState: function() {
+    //     return {
+    //         showButton: false
+    //     };
+    // },
+    //
+    // componentDidMount: function() {
+    //     var self = this;
+    //     setTimeout(function() {
+    //         self.setState({showButton: true});
+    //     }, 300);
+    // },
+    //
+    // componentWillUnmount: function() {
+    //     this.setState({showButton: false});
+    // },
 
     render: function () {
 
@@ -14,6 +34,8 @@ var Income = React.createClass({
                     return (
                         <ListItem key={item.id} {...item}/>
                     );
+                } else {
+                    return false;
                 }
 
             });
@@ -21,12 +43,17 @@ var Income = React.createClass({
 
         return (
             <div className="transition-item">
-                <div className="recent-activity">
-                    <h4>Income</h4>
+                <div className="scroll-content">
+                    <div className="recent-activity">
+                        <h4>Income</h4>
 
-                    <ul>
-                        {renderIncomes()}
-                    </ul>
+                        <ul>
+                            {renderIncomes()}
+                        </ul>
+                    </div>
+                </div>
+                <div className="add-new">
+                    <NavLink onClick={this.props.onButtonClick} className="btn income" to="/add-income" exact={true}>Add income</NavLink>
                 </div>
             </div>
         )

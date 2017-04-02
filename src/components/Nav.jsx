@@ -7,46 +7,45 @@ var $ = require('jquery');
 
 var Nav = React.createClass({
 
+    setNavIndicator: function() {
+        var $this = $(ReactDOM.findDOMNode(this));
+        var activeLink = $this.find('.active');
+        var menuHighlight = $this.find('.menu-highlight');
+        if(activeLink.hasClass('active')) {
+            var offset = activeLink[0].getBoundingClientRect();
+
+            var w = window.innerWidth;
+            var l = offset.left;
+            var r = w - offset.right;
+            menuHighlight.css({
+                'backgroundColor': '#09f',
+                'left': l,
+                'right': r
+            });
+        } else {
+            menuHighlight.css({
+                'backgroundColor': 'transparent',
+                'left': 0,
+                'right': 0
+            });
+        }
+
+    },
+
     //test: this.summaryLink.getBoundingClientRect(),
 
     componentDidMount: function() {
-        // var $this = $(ReactDOM.findDOMNode(this));
-        // var activeLink = $this.find('.active');
-        // var offset = activeLink[0].getBoundingClientRect();
-        // var menuHighlight = $this.find('.menu-highlight');
-        // var w = window.innerWidth;
-        // var l = offset.left;
-        // var r = w - offset.right;
-        //
-        // //console.log(w,l, r);
-        //
-        // menuHighlight.css({
-        //     'left': l,
-        //     'right': r
-        // });
-        // set el height and width etc.
+        this.setNavIndicator();
     },
 
     componentDidUpdate: function() {
-        // var $this = $(ReactDOM.findDOMNode(this));
-        // var activeLink = $this.find('.active');
-        // var offset = activeLink[0].getBoundingClientRect();
-        // var menuHighlight = $this.find('.menu-highlight');
-        // var w = window.innerWidth;
-        // var l = offset.left;
-        // var r = w - offset.right;
-        //
-        // //console.log(w,l, r);
-        //
-        // menuHighlight.css({
-        //     'left': l,
-        //     'right': r
-        // });
-        // set el height and width etc.
+        this.setNavIndicator();
     },
 
     handleClick: function(e) {
-        this.props.onNavClick(e.target.href);
+        var current = this.props.location.pathname.substr(1);
+        var next = e.target.id;
+        this.props.onNavClick(next, current);
     },
 
 

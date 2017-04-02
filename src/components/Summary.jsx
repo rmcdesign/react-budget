@@ -1,5 +1,7 @@
 var React = require('react');
-
+import {
+    NavLink
+} from 'react-router-dom';
 import ListItem from './ListItem';
 
 var Summary = React.createClass({
@@ -17,12 +19,18 @@ var Summary = React.createClass({
 
         return (
             <div className="transition-item">
-                <div className="recent-activity">
-                    <h4>Recent Activity</h4>
+                <div className="scroll-content">
+                    <div className="recent-activity">
+                        <h4>Recent Activity</h4>
 
-                    <ul>
-                        {renderSummary()}
-                    </ul>
+                        <ul>
+                            {renderSummary()}
+                        </ul>
+                    </div>
+                </div>
+                <div className="add-new">
+                    <NavLink onClick={this.props.onButtonClick} className="btn income summary-btn" to="/add-income" exact={true}>Add income</NavLink>
+                    <NavLink onClick={this.props.onButtonClick} className="btn expense summary-btn" to="/add-expense" exact={true}>Add expense</NavLink>
                 </div>
             </div>
         )
@@ -30,25 +38,3 @@ var Summary = React.createClass({
 });
 
 module.exports = Summary;
-
-
-{/*<li><span className="item-icon fa fa-shopping-cart"></span> <span className="item-label">Shopping / Groceries</span> <span className="item-value item__exp">-£34.54</span></li>*/}
-{/*<li><span className="item-icon fa fa-bank"></span> <span className="item-label">Wages</span> <span className="item-value item__inc">£4000.00</span></li>*/}
-{/*<li><span className="item-icon fa fa-car"></span> <span className="item-label">Fuel</span> <span className="item-value item__exp">-£64.01</span></li>*/}
-{/*<li><span className="item-icon fa fa-home"></span> <span className="item-label">Rent</span> <span className="item-value item__exp">-£445.00</span></li>*/}
-{/*<li><span className="item-icon fa fa-coffee"></span> <span className="item-label">Coffee</span> <span className="item-value item__exp">-£5.12</span></li>*/}
-{/*<li><span className="item-icon fa fa-shopping-cart"></span> <span className="item-label">Sainsburys</span> <span className="item-value item__exp">-£34.54</span></li>*/}
-{/*<li><span className="item-icon fa fa-bank"></span> <span className="item-label">Freelance work</span> <span className="item-value item__inc">£550.00</span></li>*/}
-{/*<li><span className="item-icon fa fa-car"></span> <span className="item-label">Fuel</span> <span className="item-value item__exp">-£50.01</span></li>*/}
-{/*<li><span className="item-icon fa fa-home"></span> <span className="item-label">Cleaner</span> <span className="item-value item__exp">-£20.00</span></li>*/}
-{/*<li><span className="item-icon fa fa-beer"></span> <span className="item-label">Pub</span> <span className="item-value item__exp">-£25.00</span></li>*/}
-{/*<li><span className="item-icon fa fa-shopping-cart"></span> <span className="item-label">Shopping / Groceries</span> <span className="item-value item__exp">-£34.54</span></li>*/}
-{/*<li><span className="item-icon fa fa-bank"></span> <span className="item-label">Wages</span> <span className="item-value item__inc">£4000.00</span></li>*/}
-{/*<li><span className="item-icon fa fa-car"></span> <span className="item-label">Fuel</span> <span className="item-value item__exp">-£64.01</span></li>*/}
-{/*<li><span className="item-icon fa fa-home"></span> <span className="item-label">Rent</span> <span className="item-value item__exp">-£445.00</span></li>*/}
-{/*<li><span className="item-icon fa fa-coffee"></span> <span className="item-label">Coffee</span> <span className="item-value item__exp">-£5.12</span></li>*/}
-{/*<li><span className="item-icon fa fa-shopping-cart"></span> <span className="item-label">Sainsburys</span> <span className="item-value item__exp">-£34.54</span></li>*/}
-{/*<li><span className="item-icon fa fa-bank"></span> <span className="item-label">Freelance work</span> <span className="item-value item__inc">£550.00</span></li>*/}
-{/*<li><span className="item-icon fa fa-car"></span> <span className="item-label">Fuel</span> <span className="item-value item__exp">-£50.01</span></li>*/}
-{/*<li><span className="item-icon fa fa-home"></span> <span className="item-label">Cleaner</span> <span className="item-value item__exp">-£20.00</span></li>*/}
-{/*<li><span className="item-icon fa fa-beer"></span> <span className="item-label">Pub</span> <span className="item-value item__exp">-£25.00</span></li>*/}

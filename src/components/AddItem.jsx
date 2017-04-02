@@ -34,23 +34,7 @@ var AddItem = React.createClass({
 
         if(type) {
             return (
-                <div className="buttons-container">
-                    <div className="buttons">
-                        <button onClick={this.props.toggleEnterDetails} className={type}>Add {type}</button>
-                    </div>
-                    {/*<form onSubmit={this.handleSubmit}>*/}
-                        {/*<input type="hidden" ref="type" value={type}/>*/}
-                        {/*<div className="tracker-input-container">*/}
-                            {/*<div>*/}
-                                {/*<input type="text" ref="itemDescription" className="tracker-input description" placeholder="Add description"/>*/}
-                            {/*</div>*/}
-                            {/*<div>*/}
-                                {/*<input type="number" ref="itemValue" className="tracker-input" placeholder="Add amount"/>*/}
-                            {/*</div>*/}
-                        {/*</div>*/}
-
-                    {/*</form>*/}
-                </div>
+                <button onClick={this.props.toggleEnterDetails} className={type}>Add {type}</button>
             );
         } else {
             return false;
