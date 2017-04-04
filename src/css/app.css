@@ -36,7 +36,9 @@ html, body {
   width: 100%; }
 
 #root {
-  overflow: hidden; }
+  position: absolute;
+  top: 0;
+  width: 100%; }
 
 .app-header {
   position: fixed;
