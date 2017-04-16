@@ -11,8 +11,7 @@ var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 import {
     BrowserRouter as Router,
-    Route,
-    //NavLink
+    Route
 } from 'react-router-dom'
 
 var uuid = require('node-uuid');
